@@ -14,9 +14,7 @@ const UserSchema = new mongoose.Schema({
 })
 
 UserSchema.methods.generateToken = function(){
-
     return jwt.sign({ id: this._id,username:this.username,email:this.email }, config.SECRET_KEY);
-
 }
 UserSchema.statics.verfiyToken = function (token){
 return jwt.verify(token, config.SECRET_KEY)
