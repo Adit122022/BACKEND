@@ -22,13 +22,14 @@ console.log("Message :",message)
 console.log("IP :", ip)
  wss.clients.forEach((client)=>{
     if(client.readyState === WebSocket.OPEN) client.send(`Server BroadCast :${message}`)
- })
+ });
+ });
 socket.on("error",(err)=>{
  console.log(`Error :${err} :${ip}`)
 })
 
 socket.on("close", ()=>{ console.log('Client Disconnected')})
- });
+
  });
 
  console.log(`WebSocket Server is Live on ws://localhost:8080`)
